@@ -1,0 +1,27 @@
+{
+  "name": "Autotrader UK lazy image viewer",
+  "description": "Add an image slider to each result so you don't have to open a new page to view pictures.",
+  "homepage_url": "https://github.com/sjmc11/autotraderuk-image-browser-extension",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "action": {
+    "default_title": "Initialise the lazy image viewer plugin after page load",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "run_at" : "document_idle",
+      "js": ["plugin.js"],
+      "matches": ["*://autotrader.co.uk/car-search*", "*://www.autotrader.co.uk/car-search*"]
+    }
+  ],
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://*/*",
+    "http://*/*"
+  ]
+}
